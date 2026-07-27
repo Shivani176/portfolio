@@ -193,11 +193,31 @@ section{ padding: 96px 0; position: relative; z-index: 1; }
 /* ============================================
    Hero
    ============================================ */
+.hero{ padding: 88px 0 60px; }
+.hero-grid{
+  display: grid;
+  grid-template-columns: 1.05fr 1fr;
+  gap: 48px;
+  align-items: center;
+}
+.hero-inner{ display: grid; gap: 20px; max-width: 560px; }
+.hero h1{
+  font-size: clamp(36px, 5.6vw, 58px);
+  letter-spacing: -0.01em;
+}
+.hero h1 .grad{
+  background: var(--grad-primary);
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+.hero-sub{
+  font-size: 17px;
+  color: var(--text-muted);
+  max-width: 560px;
+}
+.hero-actions{ display: flex; gap: 14px; flex-wrap: wrap; margin-top: 10px; }
 
 /* Terminal intro block */
 .terminal{
-  margin-top: 40px;
-  max-width: 620px;
   background: var(--bg-surface);
   border: 1px solid var(--border);
   border-radius: var(--radius-md);
@@ -215,8 +235,8 @@ section{ padding: 96px 0; position: relative; z-index: 1; }
 .terminal-dot.yellow{ background: #FFBD2E; }
 .terminal-dot.green{ background: #27C93F; }
 .terminal-title{ margin-left: 8px; font-family: var(--font-mono); font-size: 12.5px; color: var(--text-dim); }
-.terminal-body{ padding: 20px 22px; font-family: var(--font-mono); font-size: 13px; line-height: 2; }
-.terminal-line{ white-space: pre-wrap; }
+.terminal-body{ padding: 20px 22px; font-family: var(--font-mono); font-size: 12.5px; line-height: 2; overflow-x: auto; }
+.terminal-line{ white-space: pre; }
 .t-time{ color: var(--text-dim); }
 .t-tag{ color: var(--teal); font-weight: 600; }
 .t-tag.seek{ color: var(--coral); }
@@ -230,29 +250,6 @@ section{ padding: 96px 0; position: relative; z-index: 1; }
   vertical-align: middle;
 }
 @keyframes t-blink{ 50%{ opacity: 0; } }
-
-@media (max-width: 680px){
-  .terminal-body{ font-size: 12px; }
-}
-
-
-
-.hero{ padding: 88px 0 60px; }
-.hero-inner{ display: grid; gap: 20px; max-width: 720px; }
-.hero h1{
-  font-size: clamp(36px, 5.6vw, 58px);
-  letter-spacing: -0.01em;
-}
-.hero h1 .grad{
-  background: var(--grad-primary);
-  -webkit-background-clip: text; background-clip: text; color: transparent;
-}
-.hero-sub{
-  font-size: 17px;
-  color: var(--text-muted);
-  max-width: 560px;
-}
-.hero-actions{ display: flex; gap: 14px; flex-wrap: wrap; margin-top: 10px; }
 
 /* Pipeline diagram */
 .pipeline{
@@ -529,6 +526,8 @@ footer .wrap{
 
 @media (max-width: 680px){
   section{ padding: 64px 0; }
+  .hero-grid{ grid-template-columns: 1fr; gap: 32px; }
+  .terminal-body{ font-size: 11.5px; }
   .nav-links{
     position: fixed; top: 72px; left: 0; right: 0;
     background: var(--bg-surface);
